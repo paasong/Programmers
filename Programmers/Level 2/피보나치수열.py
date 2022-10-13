@@ -8,6 +8,6 @@ def solution(n):
 
         
 
-    return num2 % 123456
+    return num2 % 1234567
 
 print(solution(5))
