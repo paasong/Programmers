@@ -1,12 +1,21 @@
+import math
 def solution(n,a,b):
-    for i in range(1, 20):
-        if 2**i == n:
-            cnt = i
-            break
-    
-    a, b = min([a, b]), max([a, b])
+    if a > b:
+        a, b = b, a
+    return search(n,a,b,0,n)
 
-    for _ in range(cnt):
-        if 
+def search(n, a, b, start, end):
+    answer = math.log(n, 2)
+    n = n / 2
+    m = (start + end) / 2
 
-print(solution(8, 4, 7))
+    if a <= m and b > m:
+        return int(answer)
+    elif a < m and b <= m:
+        return search(n, a, b, start, m)
+    else:
+        return search(n, a, b, m, end)
+
+
+
+print('solution',solution(8, 5, 6))
