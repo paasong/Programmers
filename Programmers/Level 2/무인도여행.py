@@ -15,6 +15,7 @@ def solution(maps):
                 period = 0
 
                 while need_visit:
+                    print('need_visit',need_visit)
                     x, y = need_visit.pop(0)
                     if visited[x][y]:
                         period += int(maps[x][y])
@@ -24,6 +25,7 @@ def solution(maps):
                             if (-1 < mx < row) and (-1 < my < col):
                                 if  maps[mx][my] != 'X' and visited[mx][my]:
                                     need_visit.append((mx, my))
+
                 answer.append(period)
     answer.sort()
     if answer == list():
