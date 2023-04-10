@@ -1,33 +1,14 @@
-n, m = map(int, input().split())
-
-s = [] # 조합의 배열을 넣음
-def f():
-  if len(s) == m:
-    print(' '.join(map(str, s)))
-    return
-
-  for i in range(1, n + 1):
-    if i in s:
-      continue
-    s.append(i)
-    print('----------------------')
-    print(s)
-    f()
-    print('======================')
-    print(s)
-    s.pop()
-
-f()
-
-#
-# n, m = map(int, input().split())
-# s = []
-#
-# for i in range(1, n+1):
-#
-#
-# if len(s) == m:
-#   print(' '.join(map(str,s)))
-
+import sys
+n, m = map(int, sys.stdin.readline()[:-1].split(' '))
+answer = []
+def pop():
+    if len(answer) == m:
+        return print(' '.join(map(str, answer)))
+    for i in range(n):
+        if i+1 not in answer:
+            answer.append(i+1)
+            pop()
+            answer.pop()
+pop()
 
 
